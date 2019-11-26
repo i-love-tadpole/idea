@@ -18,6 +18,6 @@ RUN apt install -y openjdk-11-jdk fonts-droid-fallback \
  && wget -P /root/tmp https://download.jetbrains.com/idea/ideaIU-2019.2.4.tar.gz \
  && mkdir /root/idea && tar -C /root/idea -axvf /root/tmp/ideaIU-2019.2.4.tar.gz \
  && rm -r /root/tmp \
- && ln -s /root/idea/$(ls /root/Webstorm)/bin/idea.sh /usr/bin/idea
+ && ln -s /root/idea/$(ls /root/idea)/bin/idea.sh /usr/bin/idea
 
 CMD ["/entrypoint.sh"]
