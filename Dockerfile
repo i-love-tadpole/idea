@@ -17,6 +17,6 @@ RUN wget -P /root/tmp https://nodejs.org/dist/v12.16.1/node-v"${NODEJS_VERSION}"
  && ln -s /root/nodejs/$(ls /root/nodejs)/bin/node /usr/bin/node \
  && ln -s /root/nodejs/$(ls /root/nodejs)/bin/npm /usr/bin/npm \
  && ln -s /root/nodejs/$(ls /root/nodejs)/bin/npx /usr/bin/npx \
- && npm i npm
+ && npm i -g npm
 
 CMD ["/entrypoint.sh"]
