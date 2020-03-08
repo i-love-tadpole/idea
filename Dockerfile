@@ -1,6 +1,6 @@
 FROM hebo2019/ssh
 
-ENV VERSION="2019.3.1"
+ENV VERSION="2019.3.3"
 
 RUN apt update \
  && apt install -y openjdk-11-jdk openjdk-11-source openjdk-11-doc fonts-droid-fallback openjfx git \
@@ -8,5 +8,15 @@ RUN apt update \
  && mkdir /root/idea && tar -C /root/idea -axvf /root/tmp/ideaIU-"${VERSION}".tar.gz \
  && rm -r /root/tmp \
  && ln -s /root/idea/$(ls /root/idea)/bin/idea.sh /usr/bin/idea
+ 
+ ENV NODEJS_VERSION="12.16.1"
+ 
+RUN wget -P /root/tmp https://nodejs.org/dist/v12.16.1/node-v"${NODEJS_VERSION}"-linux-x64.tar.xz \
+ && mkdir /root/nodejs && tar -C /root/nodejs -axvf /root/tmp/node-v"${NODEJS_VERSION}"-linux-x64.tar.xz \
+ && rm -r /root/tmp \
+ && ln -s /root/nodejs/$(ls /root/nodejs)/bin/node /usr/bin/node \
+ && ln -s /root/nodejs/$(ls /root/nodejs)/bin/npm /usr/bin/npm \
+ && ln -s /root/nodejs/$(ls /root/nodejs)/bin/npx /usr/bin/npx \
+ && npm i npm
 
 CMD ["/entrypoint.sh"]
