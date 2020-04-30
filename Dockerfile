@@ -9,7 +9,7 @@ RUN apt update \
  && rm -r /root/tmp \
  && ln -s /root/idea/$(ls /root/idea)/bin/idea.sh /usr/bin/idea
 
-ENV NODEJS_VERSION="12.16.1"
+ENV NODEJS_VERSION="12.16.3"
 
 RUN wget -P /root/tmp https://nodejs.org/dist/v12.16.1/node-v"${NODEJS_VERSION}"-linux-x64.tar.xz \
  && mkdir /root/nodejs && tar -C /root/nodejs -axvf /root/tmp/node-v"${NODEJS_VERSION}"-linux-x64.tar.xz \
